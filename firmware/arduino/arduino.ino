@@ -2,6 +2,7 @@
 
 const int FSR_PINS[4] = {A3, A1, A2, A0};
 const int LED_PINS[4] = {3, 6, 9, 12};
+const int REST_VALUE = 600;
 const int MPU_ADDR = 0x68;
 
 void setup() {
@@ -21,7 +22,7 @@ int readAccel() {
 void loop() {
   for (int i = 0; i < 4; i++) {
     int value = analogRead(FSR_PINS[i]);
-    analogWrite(LED_PINS[i], map(value, 0, 1023, 0, 255));
+    analogWrite(LED_PINS[i], map(constrain(value, REST_VALUE, 1023), REST_VALUE, 1023, 0, 255));
     Serial.print(value);
     Serial.print(", ");
   }
