@@ -1,11 +1,14 @@
 String[] names = {"MF", "LF", "MM", "Heel"};
 color[] lineColors = {#E53935, #1E88E5, #43A047, #FB8C00};
-float[] bubbleX = {110, 210, 110, 160};
-float[] bubbleY = {240, 240, 380, 520};
-
+float[] bubbleX = {160, 220, 100, 160};
+float[] bubbleY = {240, 380, 380, 520};
 int N = 300;
 float[] fsr = new float[4];
 float[][] history = new float[4][N];
+int REST_VALUE = 600;
+int THRESHOLD = 300;
+int YMAX = 3000;
+float[] force = new float[4];
 
 boolean onGround = false;
 int strideCount = 0;
@@ -57,7 +60,7 @@ void draw() {
     ellipse(160, 380, 230, 500);
     textAlign(CENTER, CENTER);
     for (int i = 0; i < 4; i++) {
-        float f = constrain(fsr[i] / 1023.0, 0, 1);
+        float f = constrain(fsr[i] / YMAX, 0, 1);
         fill(lerpColor(color(0, 0, 255), color(255, 0, 0), f));
         ellipse(bubbleX[i], bubbleY[i], 30 + f * 50, 30 + f * 50);
         fill(0);
@@ -77,7 +80,7 @@ void drawGraph(int s, float x, float y, float w, float h) {
     stroke(0);
     text(names[s], x, y - 6);
     text("0", x - 25, y + h);
-    text("1023", x - 40, y + 10);
+    text(YMAX, x - 40, y + 10);
     text("FSR", x - 40, y + h / 2);
     noFill();
     rect(x, y, w, h);
@@ -86,32 +89,33 @@ void drawGraph(int s, float x, float y, float w, float h) {
     noFill();
     beginShape();
     for (int i = 0; i < N; i++) {
-        vertex(x + map(i, 0, N - 1, 0, w), y + h - map(history[s][i], 0, 1023, 0, h));
+        vertex(x + map(i, 0, N - 1, 0, w), y + h - map(constrain(history[s][i], 0, YMAX), 0, YMAX, 0, h));
     }
     endShape();
 }
 
 void onSample(float ax, float ay, float az) {
+    int now = millis();
+    float total = 0;
     for (int i = 0; i < 4; i++) {
+        force[i] = fsr[i] > THRESHOLD ? fsr[i] : 0;
+        total += force[i];
         arrayCopy(history[i], 1, history[i], 0, N - 1);
-        history[i][N - 1] = fsr[i];
+        history[i][N - 1] = force[i];
     }
 
-    int now = millis();
-    float total = fsr[0] + fsr[1] + fsr[2] + fsr[3];
-
-    if (!onGround && total > 900 && now - lastStrideMs > 900) {
+    if (!onGround && total > 0 && now - lastStrideMs > 300) {
         onGround = true;
         if (strideCount == 0) firstStrideMs = now;
         strideCount++;
         lastStrideMs = now;
         stanceSum = new float[4];
-    } else if (onGround && total < 450) {
+    } else if (onGround && total == 0) {
         onGround = false;
         findGait();
     }
     if (onGround) {
-        for (int i = 0; i < 4; i++) stanceSum[i] += fsr[i];
+        for (int i = 0; i < 4; i++) stanceSum[i] += force[i];
     }
 
     float g = sqrt(ax * ax + ay * ay + az * az) / 16384.0;

@@ -20,6 +20,6 @@ void serialEvent(Serial p) {
     items = splitTokens(line, ", ");
     if (items.length < 7) return;
 
-    for (int i = 0; i < 4; i++) fsr[i] = float(items[i]);
+    for (int i = 0; i < 4; i++) fsr[i] = max(float(items[i]) - REST_VALUE, 0);
     onSample(float(items[4]), float(items[5]), float(items[6]));
 }
