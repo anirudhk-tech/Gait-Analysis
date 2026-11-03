@@ -25,7 +25,7 @@ boolean moving = false;
 String stepLenStr = "70";
 
 void setup() {
-    size(1000, 700);
+    size(1000, 720);
     setupSerial();
 }
 
@@ -65,29 +65,30 @@ void draw() {
     }
     textAlign(LEFT, BASELINE);
 
-    float x = 360, y = 160, w = 600, h = 450;
-    noFill();
-    stroke(0);
-    rect(x, y, w, h);
     for (int s = 0; s < 4; s++) {
-        stroke(lineColors[s]);
-        beginShape();
-        for (int i = 0; i < N; i++) {
-            vertex(x + map(i, 0, N - 1, 0, w), y + h - map(history[s][i], 0, 1023, 0, h));
-        }
-        endShape();
-        fill(lineColors[s]);
-        text(names[s], x + 10 + s * 60, y - 10);
+        drawGraph(s, 360, 160 + s * 130, 600, 105);
     }
     fill(0);
+    text("Time (last " + N + " samples)", 580, 690);
+}
+
+void drawGraph(int s, float x, float y, float w, float h) {
+    fill(0);
+    stroke(0);
+    text(names[s], x, y - 6);
     text("0", x - 25, y + h);
     text("1023", x - 40, y + 10);
-    text("Time (last " + N + " samples)", x + w / 2 - 80, y + h + 30);
-    pushMatrix();
-    translate(x - 50, y + h / 2);
-    rotate(-HALF_PI);
-    text("FSR reading", -30, 0);
-    popMatrix();
+    text("FSR", x - 40, y + h / 2);
+    noFill();
+    rect(x, y, w, h);
+
+    stroke(lineColors[s]);
+    noFill();
+    beginShape();
+    for (int i = 0; i < N; i++) {
+        vertex(x + map(i, 0, N - 1, 0, w), y + h - map(history[s][i], 0, 1023, 0, h));
+    }
+    endShape();
 }
 
 void onSample(float ax, float ay, float az) {
@@ -99,13 +100,13 @@ void onSample(float ax, float ay, float az) {
     int now = millis();
     float total = fsr[0] + fsr[1] + fsr[2] + fsr[3];
 
-    if (!onGround && total > 300 && now - lastStrideMs > 300) {
+    if (!onGround && total > 900 && now - lastStrideMs > 900) {
         onGround = true;
         if (strideCount == 0) firstStrideMs = now;
         strideCount++;
         lastStrideMs = now;
         stanceSum = new float[4];
-    } else if (onGround && total < 150) {
+    } else if (onGround && total < 450) {
         onGround = false;
         findGait();
     }
