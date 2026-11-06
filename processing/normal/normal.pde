@@ -5,8 +5,16 @@ float[] bubbleY = {240, 380, 380, 520};
 int N = 300;
 float[] fsr = new float[4];
 float[][] history = new float[4][N];
-int REST_VALUE = 300;
 int THRESHOLD = 300;
+
+// Per-sensor baseline learned at startup / on demand, plus a noise margin.
+float[] baseline = new float[4];
+int DEADBAND = 60;            // readings within this of baseline are treated as 0
+boolean calibrating = false;
+int calibStartMs = 0;
+int CALIB_MS = 1000;          // how long to sample the resting baseline
+float[] calibSum = new float[4];
+int calibCount = 0;
 int YMAX = 3000;
 float[] force = new float[4];
 
@@ -30,9 +38,20 @@ String stepLenStr = "70";
 void setup() {
     size(1000, 720);
     setupSerial();
+    startCalibration();
+}
+
+void startCalibration() {
+    calibrating = true;
+    calibStartMs = millis();
+    calibCount = 0;
+    for (int i = 0; i < 4; i++) calibSum[i] = 0;
 }
 
 void keyPressed() {
+    if (key == 'c' || key == 'C') startCalibration();
+    if (key == 'k' || key == 'K') startRhythmCalib();
+    if (key == 'l' || key == 'L') toggleLog();
     if (key == 'r') strideCount = 0;
     if (key >= '0' && key <= '9' && stepLenStr.length() < 3) stepLenStr += key;
     if (key == BACKSPACE && stepLenStr.length() > 0) stepLenStr = stepLenStr.substring(0, stepLenStr.length() - 1);
@@ -48,12 +67,20 @@ void draw() {
     if (strideCount >= 2) cadence = (strideCount - 1) * 2 * 60000.0 / (lastStrideMs - firstStrideMs);
     int stepLen = stepLenStr.length() > 0 ? int(stepLenStr) : 0;
     float period = moving ? (millis() - periodStartMs) / 1000.0 : 0;
+    float speed = stepLen * cadence / 6000.0;   // cm/step * steps/min -> m/s
+
+    if (calibrating) {
+        fill(#FB8C00);
+        text("Calibrating baseline... keep foot still (press c to redo)", 20, 150);
+        fill(0);
+    }
 
     text("Gait: " + gait + "   MFP: " + nf(mfp, 0, 1) + " %", 20, 25);
     text("Status: " + (moving ? "In Motion" : "Standing Still"), 20, 50);
     text("Period of activity: " + nf(period, 0, 1) + " s   Total active: " + nf(activeMs / 1000.0, 0, 1) + " s", 20, 75);
     text("Step count: " + steps + "   Cadence: " + nf(cadence, 0, 1) + " steps/min   (r = reset)", 20, 100);
-    text("Step length: " + stepLenStr + " cm (type to change)   Stride length: " + (stepLen * 2) + " cm", 20, 125);
+    text("Step length: " + stepLenStr + " cm (type to change)   Stride length: " + (stepLen * 2) + " cm   Speed: " + nf(speed, 0, 2) + " m/s", 20, 125);
+    if (logging) { fill(#E53935); text("REC (l = stop)", 20, 150); fill(0); }
 
     noFill();
     stroke(0);
@@ -96,6 +123,7 @@ void drawGraph(int s, float x, float y, float w, float h) {
 
 void onSample(float ax, float ay, float az) {
     int now = millis();
+    updateRhythmCalib();
     float total = 0;
     for (int i = 0; i < 4; i++) {
         force[i] = fsr[i] > THRESHOLD ? fsr[i] : 0;
@@ -104,10 +132,11 @@ void onSample(float ax, float ay, float az) {
         history[i][N - 1] = force[i];
     }
 
-    if (!onGround && total > 0 && now - lastStrideMs > 300) {
+    if (!onGround && total > 0 && now - lastStrideMs > stepGap) {
         onGround = true;
         if (strideCount == 0) firstStrideMs = now;
         strideCount++;
+        onFootfall(now);
         lastStrideMs = now;
         stanceSum = new float[4];
     } else if (onGround && total == 0) {
