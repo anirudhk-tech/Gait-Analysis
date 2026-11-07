@@ -122,11 +122,27 @@ void setup() {
 void setupSerial() {
   println("Serial ports:");
   printArray(Serial.list());
+  String[] ports = Serial.list();
+
+  // Use PORT_NAME if it's actually plugged in; otherwise fall back to the
+  // last port (an Arduino is usually the most-recently-added one). This is
+  // why calibration/logging "did nothing" before: COM7 wasn't the real port,
+  // the open failed silently, and no serial data ever arrived.
+  String chosen = null;
+  for (String p : ports) if (p.equalsIgnoreCase(PORT_NAME)) chosen = p;
+  if (chosen == null && ports.length > 0) chosen = ports[ports.length - 1];
+
+  if (chosen == null) {
+    println("!! No serial ports found — plug in the Arduino and restart.");
+    return;
+  }
   try {
-    port = new Serial(this, PORT_NAME, BAUD);
+    port = new Serial(this, chosen, BAUD);
     port.bufferUntil('\n');
+    PORT_NAME = chosen;                       // so the footer shows the real port
+    println("Opened serial port: " + chosen);
   } catch (Exception e) {
-    println("!! Could not open " + PORT_NAME + " — edit PORT_NAME. (" + e.getMessage() + ")");
+    println("!! Could not open " + chosen + " — close the Serial Monitor / set PORT_NAME. (" + e.getMessage() + ")");
   }
 }
 
