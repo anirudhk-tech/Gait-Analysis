@@ -21,6 +21,7 @@
 //    • "In Motion" / "Standing Still" indicator from the accelerometer.
 //    • Period-of-activity + total-active timers from the accelerometer.
 //    • Step count, cadence, step length, stride length, speed.
+//    • Activity label, impact estimate, and target-cadence feedback.
 //    • Baseline auto-calibration + deadband for clean, noise-free data.
 //    • CSV logging of every profile.
 //
@@ -77,11 +78,17 @@ String stepLenStr  = "70";
 int   stepGap      = 300;
 boolean rhythmCalib= false;
 int   rhythmStartMs= 0, firstFootMs = 0, lastFootMs = 0, footCount = 0;
+int   previousStrideMs = 0;
+final int TARGET_CADENCE_MIN = 170;
+final int TARGET_CADENCE_MAX = 180;
 
 // ----- motion / activity -------------------------------------------------
 float activity     = 0;
 int   lastMotionMs = 0, periodStartMs = 0, activeMs = 0, lastUpdateMs = 0;
 boolean moving     = false;
+float impactG      = 0, strikePeakG = 0;
+int   strikeWindowEndMs = 0;
+final float IMPACT_FULL = 3.0;   // g at which the impact meter reads full
 
 // ----- logging -----------------------------------------------------------
 PrintWriter logFile;
@@ -303,9 +310,7 @@ void drawStatsPanel(float x, float y, float w, float h) {
   panel(x, y, w, h, "Analysis");
 
   int steps = strideCount * 2;
-  float cadence = 0;
-  if (strideCount >= 2)
-    cadence = (strideCount - 1) * 2 * 60000.0 / max(1, lastStrideMs - firstStrideMs);
+  float cadence = currentCadence();
   int stepLen = stepLenStr.length() > 0 ? int(stepLenStr) : 0;
   float speed = stepLen * cadence / 6000.0;   // cm/step * steps/min -> m/s
 
@@ -320,10 +325,31 @@ void drawStatsPanel(float x, float y, float w, float h) {
   text(gait, x + 30, cy + 30);
   fill(0x9E, 0xAC, 0xC4); textFont(fSmall); textAlign(RIGHT, TOP);
   text("MFP " + nf(mfp,0,1) + "%", x + w - 30, cy + 34);
-  cy += 90;
+  cy += 84;
 
-  cy = stat(x, cy, w, "Step count",     str(steps),                 "");
-  cy = stat(x, cy, w, "Cadence",        nf(cadence,0,1),            "steps/min");
+  fill(0x20, 0x28, 0x38); noStroke();
+  rrect(x + 16, cy, w - 32, 92, 10);
+  fill(0x7E, 0x8A, 0xA0); textFont(fSmall); textAlign(LEFT, TOP);
+  text("ACTIVITY", x + 28, cy + 9);
+  fill(0xFF, 0xD5, 0x4F); textFont(fMed);
+  text(activityType(cadence), x + 28, cy + 27);
+  fill(0x7E, 0x8A, 0xA0); textFont(fSmall); textAlign(RIGHT, TOP);
+  text("IMPACT METER", x + w - 28, cy + 9);
+  color ic = impactColor(impactG);
+  fill(ic); textFont(fMed);
+  text(nf(impactG, 0, 2) + " g", x + w - 28, cy + 27);
+  // horizontal foot-strike meter: 0 .. IMPACT_FULL g
+  float mx = x + 28, mw = w - 56, my = cy + 60, mh = 12;
+  noStroke(); fill(0x12, 0x16, 0x21); rrect(mx, my, mw, mh, 6);
+  float frac = constrain(impactG / IMPACT_FULL, 0, 1);
+  fill(ic); rrect(mx, my, max(mh, mw * frac), mh, 6);
+  fill(0x5B, 0x6B, 0x82); textFont(fSmall); textAlign(LEFT, TOP);
+  text("soft", mx, my + 15);
+  textAlign(RIGHT, TOP); text("hard", mx + mw, my + 15);
+  cy += 106;
+
+  cy = stat(x, cy, w, "Step count", str(steps), "");
+  cy = cadenceStat(x, cy, w, cadence);
   cy = stat(x, cy, w, "Step length",    stepLenStr,                 "cm  (type to edit)");
   cy = stat(x, cy, w, "Stride length",  str(stepLen * 2),           "cm");
   cy = stat(x, cy, w, "Walking speed",  nf(speed,0,2),              "m/s");
@@ -340,13 +366,63 @@ float stat(float x, float cy, float w, String label, String val, String unit) {
   fill(0x7E, 0x8A, 0xA0); textFont(fSmall); textAlign(LEFT, TOP);
   text(label, x + 30, cy);
   fill(255); textFont(fBig); textAlign(LEFT, TOP);
-  text(val, x + 30, cy + 15);
+  text(val, x + 30, cy + 13);
   float vw = textWidth(val);
   fill(0x7E, 0x8A, 0xA0); textFont(fSmall);
-  text(unit, x + 36 + vw, cy + 34);
+  text(unit, x + 36 + vw, cy + 32);
   stroke(0x23, 0x2B, 0x3B); strokeWeight(1);
-  line(x + 24, cy + 56, x + w - 24, cy + 56); noStroke();
-  return cy + 70;
+  line(x + 24, cy + 51, x + w - 24, cy + 51); noStroke();
+  return cy + 54;
+}
+
+float cadenceStat(float x, float cy, float w, float cadence) {
+  fill(0x7E, 0x8A, 0xA0); textFont(fSmall); textAlign(LEFT, TOP);
+  text("Cadence (target " + TARGET_CADENCE_MIN + "-" + TARGET_CADENCE_MAX + ")", x + 30, cy);
+  color targetColor = cadenceColor(cadence);
+  fill(targetColor); textFont(fBig); textAlign(LEFT, TOP);
+  String value = nf(cadence, 0, 1);
+  text(value, x + 30, cy + 15);
+  fill(0x7E, 0x8A, 0xA0); textFont(fSmall);
+  text("steps/min", x + 36 + textWidth(value), cy + 34);
+  textAlign(LEFT, TOP); fill(targetColor);
+  text(cadenceStatus(cadence), x + 30, cy + 47);
+  stroke(0x23, 0x2B, 0x3B); strokeWeight(1);
+  line(x + 24, cy + 60, x + w - 24, cy + 60); noStroke();
+  return cy + 62;
+}
+
+String activityType(float cadence) {
+  if (!moving) return "Waiting";
+  if (cadence <= 0) return "Detecting";
+  if (cadence < 120) return "Walking";
+  if (cadence < TARGET_CADENCE_MIN) return "Jogging";
+  return "Running";
+}
+
+String cadenceStatus(float cadence) {
+  if (cadence <= 0) return "Waiting for steps";
+  if (cadence < TARGET_CADENCE_MIN) return "Too slow";
+  if (cadence <= TARGET_CADENCE_MAX) return "On target";
+  return "Too fast";
+}
+
+color cadenceColor(float cadence) {
+  if (cadence <= 0) return color(0x9E, 0xAC, 0xC4);
+  if (cadence < TARGET_CADENCE_MIN || cadence > TARGET_CADENCE_MAX) return color(0xE7, 0x4C, 0x3C);
+  return color(0x2E, 0xCC, 0x71);
+}
+
+// green (soft) -> amber -> red (hard) by foot-strike intensity
+color impactColor(float g) {
+  float t = constrain(g / IMPACT_FULL, 0, 1);
+  if (t < 0.5) return lerpColor(color(0x2E,0xCC,0x71), color(0xF1,0xC4,0x0F), t / 0.5);
+  return lerpColor(color(0xF1,0xC4,0x0F), color(0xE7,0x4C,0x3C), (t - 0.5) / 0.5);
+}
+
+float currentCadence() {
+  if (strideCount < 2 || previousStrideMs <= 0 || lastStrideMs <= previousStrideMs) return 0;
+  if (millis() - lastStrideMs > 2500) return 0;
+  return 120000.0 / (lastStrideMs - previousStrideMs);
 }
 
 void drawFooter() {
@@ -406,6 +482,16 @@ void serialEvent(Serial p) {
 void onSample(float ax, float ay, float az) {
   int now = millis();
   updateRhythmCalib();
+  float accelMagnitudeG = sqrt(ax*ax + ay*ay + az*az) / 16384.0;
+  float dynamicG = abs(accelMagnitudeG - 1.0);
+
+  if (strikeWindowEndMs > 0) {
+    if (now <= strikeWindowEndMs) strikePeakG = max(strikePeakG, dynamicG);
+    else {
+      impactG = strikePeakG;
+      strikeWindowEndMs = 0;
+    }
+  }
 
   float total = 0;
   for (int i = 0; i < NS; i++) {
@@ -419,9 +505,12 @@ void onSample(float ax, float ay, float az) {
   if (!onGround && total > 0 && now - lastStrideMs > stepGap) {
     onGround = true;
     if (strideCount == 0) firstStrideMs = now;
+    previousStrideMs = lastStrideMs;
     strideCount++;
     onFootfall(now);
     lastStrideMs = now;
+    strikePeakG = dynamicG;
+    strikeWindowEndMs = now + 150;
     stanceSum = new float[NS];
   } else if (onGround && total == 0) {
     onGround = false;
@@ -430,8 +519,7 @@ void onSample(float ax, float ay, float az) {
   if (onGround) for (int i = 0; i < NS; i++) stanceSum[i] += force[i];
 
   // motion / activity from accelerometer magnitude
-  float g = sqrt(ax*ax + ay*ay + az*az) / 16384.0;
-  activity = 0.9 * activity + 0.1 * abs(g - 1);
+  activity = 0.9 * activity + 0.1 * dynamicG;
   if (activity > 0.08) lastMotionMs = now;
   boolean nowMoving = now - lastMotionMs < 1000;
   if (nowMoving && !moving) periodStartMs = now;
@@ -470,7 +558,7 @@ void updateRhythmCalib() {
 void toggleLog() {
   if (!logging) {
     logFile = createWriter("profile_" + (millis() / 1000) + ".csv");
-    logFile.println("time_ms,MF,LF,MM,Heel,gait,mfp");
+    logFile.println("time_ms,MF,LF,MM,Heel,gait,mfp,activity,cadence,impact_g");
     logging = true;
   } else {
     logFile.flush(); logFile.close(); logging = false;
@@ -478,8 +566,10 @@ void toggleLog() {
 }
 void logRow() {
   if (!logging) return;
+  float cadence = currentCadence();
   logFile.println(millis() + "," + int(fsr[0]) + "," + int(fsr[1]) + "," +
-                  int(fsr[2]) + "," + int(fsr[3]) + "," + gait + "," + nf(mfp,0,1));
+                  int(fsr[2]) + "," + int(fsr[3]) + "," + gait + "," + nf(mfp,0,1) + "," +
+                  activityType(cadence) + "," + nf(cadence,0,1) + "," + nf(impactG,0,2));
 }
 
 // ----- keys --------------------------------------------------------------
@@ -487,7 +577,10 @@ void keyPressed() {
   if (key == 'c' || key == 'C') startCalibration();
   if (key == 'k' || key == 'K') startRhythmCalib();
   if (key == 'l' || key == 'L') toggleLog();
-  if (key == 'r' || key == 'R') { strideCount = 0; firstStrideMs = lastStrideMs = millis(); }
+  if (key == 'r' || key == 'R') {
+    strideCount = 0;
+    firstStrideMs = lastStrideMs = previousStrideMs = 0;
+  }
   if (key >= '0' && key <= '9' && stepLenStr.length() < 3) stepLenStr += key;
   if (key == BACKSPACE && stepLenStr.length() > 0)
     stepLenStr = stepLenStr.substring(0, stepLenStr.length() - 1);
