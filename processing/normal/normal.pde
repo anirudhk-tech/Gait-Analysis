@@ -1,3 +1,7 @@
+// Gait analysis UI for the smart insole (Lab 4).
+// Reads 4 FSRs + accelerometer from the Arduino over serial.
+// Sensors: 0 = medial forefoot, 1 = lateral forefoot, 2 = medial mid-foot, 3 = heel.
+
 String[] names = {"MF", "LF", "MM", "Heel"};
 color[] lineColors = {#E53935, #1E88E5, #43A047, #FB8C00};
 float[] bubbleX = {160, 220, 100, 160};
@@ -214,15 +218,17 @@ color cadenceColor(float cadence) {
     return #43A047;
 }
 
+// Work out the gait from how the load was spread over one stance.
+// mfp = how much of the force was on the inner (medial) side of the foot.
+// heelPct = how much was on the heel.
 void findGait() {
     float all = stanceSum[0] + stanceSum[1] + stanceSum[2] + stanceSum[3] + 0.001;
     mfp = (stanceSum[2] + stanceSum[0]) * 100 / all;
     float heelPct = stanceSum[3] * 100 / all;
 
-    // barely any load on the heel means we're up on the toes
-    if (heelPct < 10) gait = "Tip-toeing";
-    else if (heelPct > 60) gait = "Heel walking";
-    else if (mfp > 60) gait = "Out-toeing";
-    else if (mfp < 40) gait = "In-toeing";
+    if (heelPct < 10) gait = "Tip-toeing";          // hardly any heel -> on the toes
+    else if (heelPct > 60) gait = "Heel walking";   // mostly heel
+    else if (mfp > 60) gait = "Out-toeing";         // weight on the inner edge
+    else if (mfp < 40) gait = "In-toeing";          // weight on the outer edge
     else gait = "Normal gait";
 }
