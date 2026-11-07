@@ -89,6 +89,8 @@ boolean moving     = false;
 float impactG      = 0, strikePeakG = 0;
 int   strikeWindowEndMs = 0;
 final float IMPACT_FULL = 3.0;   // g at which the impact meter reads full
+final float LED_FULL    = 1200;  // force at which an LED is full brightness (lower = brighter)
+final int   LED_FLOOR   = 50;    // min brightness once a sensor is in contact
 
 // ----- logging -----------------------------------------------------------
 PrintWriter logFile;
@@ -489,7 +491,23 @@ void serialEvent(Serial p) {
   }
 
   onSample(float(t[4]), float(t[5]), float(t[6]));
+  sendLeds();
   logRow();
+}
+
+// Drive the insole LEDs from FSR force, with a bright perceptual curve:
+// a low full-scale plus a sqrt ramp so even light contact glows, and a
+// floor so any touch is clearly visible.
+void sendLeds() {
+  if (port == null) return;
+  String msg = "L";
+  for (int i = 0; i < NS; i++) {
+    float frac = constrain(fsr[i] / LED_FULL, 0, 1);
+    int b = int(255 * sqrt(frac));
+    if (fsr[i] > 0) b = max(b, LED_FLOOR);
+    msg += "," + b;
+  }
+  port.write(msg + "\n");
 }
 
 // =========================================================================

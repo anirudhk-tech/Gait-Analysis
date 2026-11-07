@@ -1,6 +1,6 @@
 import processing.serial.*;
 
-String PORT_NAME = "/dev/ttyACM0";
+String PORT_NAME = "COM7";
 int baudrate = 115200;
 Serial port;
 String[] items = new String[7];
