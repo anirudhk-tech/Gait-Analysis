@@ -15,7 +15,7 @@ int calibStartMs = 0;
 int CALIB_MS = 1000;          // how long to sample the resting baseline
 float[] calibSum = new float[4];
 int calibCount = 0;
-int YMAX = 3000;
+int YMAX = 1500;
 float[] force = new float[4];
 
 boolean onGround = false;
@@ -71,7 +71,7 @@ void draw() {
 
     if (calibrating) {
         fill(#FB8C00);
-        text("Calibrating baseline... keep foot still (press c to redo)", 20, 150);
+        text("Calibrating baseline... keep foot still (press c to redo)", 300, 25);
         fill(0);
     }
 
@@ -162,7 +162,7 @@ void findGait() {
     mfp = (stanceSum[2] + stanceSum[0]) * 100 / all;
     float heelPct = stanceSum[3] * 100 / all;
 
-    if (heelPct < 10) gait = "Tip-toeing";
+    if (stanceSum[0] > 60) gait = "Tip-toeing";
     else if (heelPct > 60) gait = "Heel walking";
     else if (mfp > 60) gait = "Out-toeing";
     else if (mfp < 40) gait = "In-toeing";
