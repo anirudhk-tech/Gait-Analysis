@@ -1,5 +1,3 @@
-// Gait analysis UI for the smart insole (Lab 4).
-// Reads 4 FSRs + accelerometer from the Arduino over serial.
 // Sensors: 0 = medial forefoot, 1 = lateral forefoot, 2 = medial mid-foot, 3 = heel.
 
 String[] names = {"MF", "LF", "MM", "Heel"};
@@ -11,12 +9,11 @@ float[] fsr = new float[4];
 float[][] history = new float[4][N];
 int THRESHOLD = 300;
 
-// Per-sensor baseline learned at startup / on demand, plus a noise margin.
 float[] baseline = new float[4];
-int DEADBAND = 60;            // readings within this of baseline are treated as 0
+int DEADBAND = 60;
 boolean calibrating = false;
 int calibStartMs = 0;
-int CALIB_MS = 1000;          // how long to sample the resting baseline
+int CALIB_MS = 1000;
 float[] calibSum = new float[4];
 int calibCount = 0;
 int YMAX = 1500;
@@ -82,7 +79,7 @@ void draw() {
     color cadenceColor = cadenceColor(cadence);
     int stepLen = stepLenStr.length() > 0 ? int(stepLenStr) : 0;
     float period = moving ? (millis() - periodStartMs) / 1000.0 : 0;
-    float speed = stepLen * cadence / 6000.0;   // cm/step * steps/min -> m/s
+    float speed = stepLen * cadence / 6000.0;
 
     if (calibrating) {
         fill(#FB8C00);
@@ -218,17 +215,14 @@ color cadenceColor(float cadence) {
     return #43A047;
 }
 
-// Work out the gait from how the load was spread over one stance.
-// mfp = how much of the force was on the inner (medial) side of the foot.
-// heelPct = how much was on the heel.
 void findGait() {
     float all = stanceSum[0] + stanceSum[1] + stanceSum[2] + stanceSum[3] + 0.001;
     mfp = (stanceSum[2] + stanceSum[0]) * 100 / all;
     float heelPct = stanceSum[3] * 100 / all;
 
-    if (heelPct < 10) gait = "Tip-toeing";          // hardly any heel -> on the toes
-    else if (heelPct > 60) gait = "Heel walking";   // mostly heel
-    else if (mfp > 60) gait = "Out-toeing";         // weight on the inner edge
-    else if (mfp < 40) gait = "In-toeing";          // weight on the outer edge
+    if (heelPct < 10) gait = "Tip-toeing";
+    else if (heelPct > 60) gait = "Heel walking";
+    else if (mfp > 60) gait = "Out-toeing";
+    else if (mfp < 40) gait = "In-toeing";
     else gait = "Normal gait";
 }

@@ -44,7 +44,7 @@ void serialEvent(Serial p) {
     logRow();
 }
 
-// Map each FSR force to an LED brightness (0-255) and send to the Arduino.
+
 void sendLeds() {
     String msg = "L";
     for (int i = 0; i < 4; i++) msg += "," + int(map(constrain(fsr[i], 0, YMAX), 0, YMAX, 0, 255));

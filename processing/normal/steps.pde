@@ -1,7 +1,5 @@
-// Walk calibration: measure the user's natural step rhythm for 10 seconds,
-// then set how long we wait before counting the next step (stepGap).
 
-int stepGap = 300;          // ms between steps, used by onSample(); 300 until calibrated
+int stepGap = 300;
 boolean rhythmCalib = false;
 int rhythmStartMs = 0;
 int firstFootMs = 0;

@@ -1,4 +1,3 @@
-// Press 'l' to start/stop logging. Each start makes a new CSV (one per profile).
 
 PrintWriter logFile;
 boolean logging = false;
