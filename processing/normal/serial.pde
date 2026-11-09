@@ -1,6 +1,6 @@
 import processing.serial.*;
 
-String PORT_NAME = "COM7";
+String PORT_NAME = "/dev/ttyACM0";
 int baudrate = 115200;
 Serial port;
 String[] items = new String[7];
@@ -15,7 +15,7 @@ void serialEvent(Serial p) {
     String line = p.readStringUntil('\n');
     if (line == null) return;
     line = trim(line);
-    println("serial: " + line);
+    //println("serial: " + line);
 
     items = splitTokens(line, ", ");
     if (items.length < 7) return;

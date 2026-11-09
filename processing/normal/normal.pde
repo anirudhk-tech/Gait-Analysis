@@ -36,11 +36,20 @@ int lastUpdateMs = 0;
 boolean moving = false;
 
 String stepLenStr = "70";
-final int TARGET_CADENCE_MIN = 170;
-final int TARGET_CADENCE_MAX = 180;
 float impactG = 0;
 float strikePeakG = 0;
 int strikeWindowEndMs = 0;
+
+// cadence computation
+int NF = 6;
+int[] footTimes = new int[NF];
+int footN = 0;
+
+// target cadence
+int goal = 0;
+String[] goalName = {"Walking", "Jogging", "Running"};
+int[] goalMin = {100, 130, 170};
+int[] goalMax = {120, 160, 180};
 
 void setup() {
     size(1000, 720);
@@ -55,15 +64,23 @@ void startCalibration() {
     for (int i = 0; i < 4; i++) calibSum[i] = 0;
 }
 
+void recordFootfall(int now) {
+    for (int i = 0; i < NF - 1; i++) footTimes[i] = footTimes[i + 1];
+    footTimes[NF - 1] = now;
+    if (footN < NF) footN++;
+}
+
 void keyPressed() {
     if (key == 'c' || key == 'C') startCalibration();
     if (key == 'k' || key == 'K') startRhythmCalib();
     if (key == 'l' || key == 'L') toggleLog();
+    if (key == 'g' || key == 'G') goal = (goal + 1) % 3;
     if (key == 'r' || key == 'R') {
         strideCount = 0;
         firstStrideMs = 0;
         lastStrideMs = 0;
         previousStrideMs = 0;
+        footN = 0;
     }
     if (key >= '0' && key <= '9' && stepLenStr.length() < 3) stepLenStr += key;
     if (key == BACKSPACE && stepLenStr.length() > 0) stepLenStr = stepLenStr.substring(0, stepLenStr.length() - 1);
@@ -93,7 +110,7 @@ void draw() {
     text("Step count: " + steps + "   (r = reset)", 20, 100);
     fill(cadenceColor);
     text("Cadence: " + nf(cadence, 0, 1) + " steps/min", 20, 125);
-    text("Target: " + TARGET_CADENCE_MIN + "-" + TARGET_CADENCE_MAX + " steps/min - " + cadenceStatus(cadence), 300, 125);
+    text(goalName[goal] + " target: " + goalMin[goal] + "-" + goalMax[goal] + " steps/min - " + cadenceStatus(cadence) + "   (g = change goal)", 300, 125);
     fill(0);
     text("Step length: " + stepLenStr + " cm (type to change)   Stride length: " + (stepLen * 2) + " cm   Speed: " + nf(speed, 0, 2) + " m/s", 20, 150);
     text("Activity: " + activityType(cadence), 20, 175);
@@ -167,6 +184,7 @@ void onSample(float ax, float ay, float az) {
         previousStrideMs = lastStrideMs;
         strideCount++;
         onFootfall(now);
+        recordFootfall(now);
         lastStrideMs = now;
         strikePeakG = dynamicG;
         strikeWindowEndMs = now + 150;
@@ -189,29 +207,32 @@ void onSample(float ax, float ay, float az) {
 }
 
 float currentCadence() {
-    if (strideCount < 2 || previousStrideMs <= 0 || lastStrideMs <= previousStrideMs) return 0;
+    if (footN < 3) return 0;
     if (millis() - lastStrideMs > 2500) return 0;
-    return 120000.0 / (lastStrideMs - previousStrideMs);
+    int first = footTimes[NF - footN];
+    int last  = footTimes[NF - 1];
+    float avgStrideMs = (last - first) / (float)(footN - 1);
+    return 120000.0 / avgStrideMs;
 }
 
 String activityType(float cadence) {
     if (!moving) return "Waiting";
     if (cadence <= 0) return "Detecting";
     if (cadence < 120) return "Walking";
-    if (cadence < TARGET_CADENCE_MIN) return "Jogging";
+    if (cadence < 170) return "Jogging";
     return "Running";
 }
 
 String cadenceStatus(float cadence) {
     if (cadence <= 0) return "waiting for steps";
-    if (cadence < TARGET_CADENCE_MIN) return "too slow";
-    if (cadence <= TARGET_CADENCE_MAX) return "on target";
+    if (cadence < goalMin[goal]) return "too slow";
+    if (cadence <= goalMax[goal]) return "on target";
     return "too fast";
 }
 
 color cadenceColor(float cadence) {
     if (cadence <= 0) return color(120);
-    if (cadence < TARGET_CADENCE_MIN || cadence > TARGET_CADENCE_MAX) return #E53935;
+    if (cadence < goalMin[goal] || cadence > goalMax[goal]) return #E53935;
     return #43A047;
 }
 
@@ -219,10 +240,11 @@ void findGait() {
     float all = stanceSum[0] + stanceSum[1] + stanceSum[2] + stanceSum[3] + 0.001;
     mfp = (stanceSum[2] + stanceSum[0]) * 100 / all;
     float heelPct = stanceSum[3] * 100 / all;
+    println("heelPct: " + heelPct + ", mfp: " + mfp);
 
     if (heelPct < 10) gait = "Tip-toeing";
-    else if (heelPct > 60) gait = "Heel walking";
-    else if (mfp > 60) gait = "Out-toeing";
+    else if (heelPct > 80) gait = "Heel walking";
+    else if (mfp > 75) gait = "Out-toeing";
     else if (mfp < 40) gait = "In-toeing";
     else gait = "Normal gait";
 }

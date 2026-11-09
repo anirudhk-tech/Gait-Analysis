@@ -1,7 +1,7 @@
 #include <Wire.h>
 
 const int FSR_PINS[4] = {A3, A1, A2, A0};
-const int LED_PINS[4] = {3, 6, 9, 12};
+const int LED_PINS[4] = {3, 6, 9, 11};
 const int REST_VALUE = 600;
 const int MPU_ADDR = 0x68;
 

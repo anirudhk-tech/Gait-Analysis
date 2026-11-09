@@ -1,0 +1,546 @@
+time_ms,MF,LF,MM,Heel,gait,mfp,activity,cadence,impact_g
+17264,0,0,0,0,Normal gait,49.5,Walking,85.9,0.88
+17274,0,0,0,0,Normal gait,49.5,Walking,85.9,0.88
+17294,0,0,0,0,Normal gait,49.5,Walking,85.9,0.88
+17324,0,0,0,0,Normal gait,49.5,Walking,85.9,0.88
+17354,0,0,0,0,Normal gait,49.5,Walking,85.9,0.88
+17364,0,0,0,0,Normal gait,49.5,Walking,85.9,0.88
+17394,0,0,0,0,Normal gait,49.5,Walking,85.9,0.88
+17424,0,0,0,0,Normal gait,49.5,Walking,85.9,0.88
+17444,0,0,0,345,Normal gait,49.5,Walking,89.0,0.88
+17465,0,0,0,563,Normal gait,49.5,Walking,89.0,0.88
+17494,0,0,0,635,Normal gait,49.5,Walking,89.0,0.88
+17514,0,0,0,592,Normal gait,49.5,Walking,89.0,0.88
+17544,0,0,0,586,Normal gait,49.5,Walking,89.0,0.88
+17565,0,0,0,622,Normal gait,49.5,Walking,89.0,0.88
+17594,0,0,0,676,Normal gait,49.5,Walking,89.0,0.88
+17614,0,0,105,689,Normal gait,49.5,Walking,89.0,0.42
+17664,0,0,688,671,Normal gait,49.5,Walking,89.0,0.42
+17675,0,0,790,506,Normal gait,49.5,Walking,89.0,0.42
+17694,0,0,826,260,Normal gait,49.5,Walking,89.0,0.42
+17725,0,0,807,0,Normal gait,49.5,Walking,89.0,0.42
+17744,0,0,718,0,Normal gait,49.5,Walking,89.0,0.42
+17754,0,0,608,0,Normal gait,49.5,Walking,89.0,0.42
+17784,0,0,450,0,Normal gait,49.5,Walking,89.0,0.42
+17804,0,0,0,0,Normal gait,45.4,Walking,89.0,0.42
+17824,0,0,0,0,Normal gait,45.4,Walking,89.0,0.42
+17854,0,0,0,0,Normal gait,45.4,Walking,89.0,0.42
+17874,0,0,0,0,Normal gait,45.4,Walking,89.0,0.42
+17904,0,0,0,0,Normal gait,45.4,Walking,89.0,0.42
+17925,0,0,0,0,Normal gait,45.4,Walking,89.0,0.42
+17954,0,0,0,0,Normal gait,45.4,Walking,89.0,0.42
+17984,0,0,0,0,Normal gait,45.4,Walking,89.0,0.42
+18004,0,0,0,0,Normal gait,45.4,Walking,89.0,0.42
+18034,0,0,0,0,Normal gait,45.4,Walking,89.0,0.42
+18054,0,0,0,0,Normal gait,45.4,Walking,89.0,0.42
+18074,0,0,0,0,Normal gait,45.4,Walking,89.0,0.42
+18094,0,0,0,0,Normal gait,45.4,Walking,89.0,0.42
+18124,0,0,0,0,Normal gait,45.4,Walking,89.0,0.42
+18134,0,0,0,0,Normal gait,45.4,Walking,89.0,0.42
+18164,0,0,0,0,Normal gait,45.4,Walking,89.0,0.42
+18184,0,0,0,0,Normal gait,45.4,Walking,89.0,0.42
+18214,0,0,0,0,Normal gait,45.4,Walking,89.0,0.42
+18234,0,0,0,0,Normal gait,45.4,Walking,89.0,0.42
+18264,0,0,0,0,Normal gait,45.4,Walking,89.0,0.42
+18284,0,0,0,0,Normal gait,45.4,Walking,89.0,0.42
+18314,0,0,0,0,Normal gait,45.4,Walking,89.0,0.42
+18334,0,0,0,0,Normal gait,45.4,Walking,89.0,0.42
+18364,0,0,0,0,Normal gait,45.4,Walking,89.0,0.42
+18384,0,0,0,0,Normal gait,45.4,Walking,89.0,0.42
+18394,0,0,0,0,Normal gait,45.4,Walking,89.0,0.42
+18434,0,0,0,0,Normal gait,45.4,Walking,89.0,0.42
+18465,0,0,0,0,Normal gait,45.4,Walking,89.0,0.42
+18484,0,0,0,0,Normal gait,45.4,Walking,89.0,0.42
+18504,0,0,0,0,Normal gait,45.4,Walking,89.0,0.42
+18524,0,0,0,0,Normal gait,45.4,Walking,89.0,0.42
+18544,0,0,0,0,Normal gait,45.4,Walking,89.0,0.42
+18574,0,0,0,316,Normal gait,45.4,Walking,87.6,0.42
+18594,0,0,0,729,Normal gait,45.4,Walking,87.6,0.42
+18624,0,0,0,758,Normal gait,45.4,Walking,87.6,0.42
+18654,0,0,0,638,Normal gait,45.4,Walking,87.6,0.42
+18674,0,0,0,676,Normal gait,45.4,Walking,87.6,0.42
+18695,0,0,0,752,Normal gait,45.4,Walking,87.6,0.42
+18724,0,0,0,763,Normal gait,45.4,Walking,87.6,0.42
+18744,0,0,745,760,Normal gait,45.4,Walking,87.6,0.65
+18775,0,0,802,667,Normal gait,45.4,Walking,87.6,0.65
+18805,0,0,815,560,Normal gait,45.4,Walking,87.6,0.65
+18824,0,0,811,416,Normal gait,45.4,Walking,87.6,0.65
+18834,0,0,770,0,Normal gait,45.4,Walking,87.6,0.65
+18864,0,0,690,0,Normal gait,45.4,Walking,87.6,0.65
+18894,0,0,612,0,Normal gait,45.4,Walking,87.6,0.65
+18925,0,0,434,0,Normal gait,45.4,Walking,87.6,0.65
+18935,0,0,79,0,Normal gait,44.7,Walking,87.6,0.65
+18984,0,0,0,0,Normal gait,44.7,Walking,87.6,0.65
+18994,0,0,0,0,Normal gait,44.7,Walking,87.6,0.65
+19015,0,0,0,0,Normal gait,44.7,Walking,87.6,0.65
+19034,0,0,0,0,Normal gait,44.7,Walking,87.6,0.65
+19064,0,0,0,0,Normal gait,44.7,Walking,87.6,0.65
+19084,0,0,0,0,Normal gait,44.7,Walking,87.6,0.65
+19114,0,0,0,0,Normal gait,44.7,Walking,87.6,0.65
+19135,0,0,0,0,Normal gait,44.7,Walking,87.6,0.65
+19155,0,0,0,0,Normal gait,44.7,Walking,87.6,0.65
+19184,0,0,0,0,Normal gait,44.7,Walking,87.6,0.65
+19204,0,0,0,0,Normal gait,44.7,Walking,87.6,0.65
+19225,0,0,0,0,Normal gait,44.7,Walking,87.6,0.65
+19254,0,0,0,0,Normal gait,44.7,Walking,87.6,0.65
+19274,0,0,0,0,Normal gait,44.7,Walking,87.6,0.65
+19284,0,0,0,0,Normal gait,44.7,Walking,87.6,0.65
+19324,0,0,0,0,Normal gait,44.7,Walking,87.6,0.65
+19344,0,0,0,0,Normal gait,44.7,Walking,87.6,0.65
+19364,0,0,0,0,Normal gait,44.7,Walking,87.6,0.65
+19395,0,0,0,0,Normal gait,44.7,Walking,87.6,0.65
+19414,0,0,0,0,Normal gait,44.7,Walking,87.6,0.65
+19444,0,0,0,0,Normal gait,44.7,Walking,87.6,0.65
+19464,0,0,0,0,Normal gait,44.7,Walking,87.6,0.65
+19484,0,0,0,0,Normal gait,44.7,Walking,87.6,0.65
+19684,0,0,0,0,Normal gait,44.7,Walking,87.6,0.65
+19704,0,0,0,0,Normal gait,44.7,Walking,87.6,0.65
+19725,0,0,0,0,Normal gait,44.7,Walking,87.6,0.65
+19735,0,0,0,0,Normal gait,44.7,Walking,87.6,0.65
+19764,0,0,0,0,Normal gait,44.7,Walking,87.6,0.65
+19774,0,0,0,0,Normal gait,44.7,Walking,87.6,0.65
+19794,0,0,0,0,Normal gait,44.7,Walking,87.6,0.65
+19804,0,0,0,0,Normal gait,44.7,Walking,87.6,0.65
+19824,0,0,0,0,Normal gait,44.7,Walking,87.6,0.65
+19854,0,0,0,0,Normal gait,44.7,Walking,87.6,0.65
+19865,0,0,0,165,Normal gait,44.7,Walking,87.6,0.65
+19904,0,0,0,562,Normal gait,44.7,Walking,86.8,0.65
+19924,0,0,0,732,Normal gait,44.7,Walking,86.8,0.65
+19934,0,0,0,618,Normal gait,44.7,Walking,86.8,0.65
+19954,0,0,0,527,Normal gait,44.7,Walking,86.8,0.65
+19975,0,0,0,508,Normal gait,44.7,Walking,86.8,0.65
+19984,0,165,86,379,Normal gait,44.7,Walking,86.8,0.65
+20004,0,272,323,166,Normal gait,44.7,Walking,86.8,0.65
+20025,0,326,381,0,Normal gait,44.7,Walking,86.8,0.65
+20044,0,349,265,0,Normal gait,44.7,Walking,86.8,0.65
+20064,0,311,137,0,Normal gait,44.7,Walking,86.8,0.49
+20075,0,230,0,0,In-toeing,14.0,Walking,86.8,0.49
+20095,0,81,0,0,In-toeing,14.0,Walking,86.8,0.49
+20124,0,0,0,0,In-toeing,14.0,Walking,86.8,0.49
+20135,0,0,0,0,In-toeing,14.0,Walking,86.8,0.49
+20154,0,0,0,0,In-toeing,14.0,Walking,86.8,0.49
+20164,0,0,0,0,In-toeing,14.0,Walking,86.8,0.49
+20184,0,0,0,0,In-toeing,14.0,Walking,86.8,0.49
+20194,0,0,0,0,In-toeing,14.0,Walking,86.8,0.49
+20224,0,0,0,0,In-toeing,14.0,Walking,86.8,0.49
+20245,0,0,0,0,In-toeing,14.0,Walking,86.8,0.49
+20255,0,0,0,0,In-toeing,14.0,Walking,86.8,0.49
+20285,0,0,0,0,In-toeing,14.0,Walking,86.8,0.49
+20315,0,0,0,0,In-toeing,14.0,Walking,86.8,0.49
+20344,0,0,0,0,In-toeing,14.0,Walking,86.8,0.49
+20354,0,0,0,0,In-toeing,14.0,Walking,86.8,0.49
+20384,0,0,0,0,In-toeing,14.0,Walking,86.8,0.49
+20405,0,0,0,0,In-toeing,14.0,Walking,86.8,0.49
+20434,0,0,0,0,In-toeing,14.0,Walking,86.8,0.49
+20454,0,0,0,0,In-toeing,14.0,Walking,86.8,0.49
+20474,0,0,0,0,In-toeing,14.0,Walking,86.8,0.49
+20505,0,0,0,0,In-toeing,14.0,Walking,86.8,0.49
+20524,0,0,0,0,In-toeing,14.0,Walking,86.8,0.49
+20554,0,0,0,0,In-toeing,14.0,Walking,86.8,0.49
+20575,0,0,0,0,In-toeing,14.0,Walking,86.8,0.49
+20604,0,0,0,0,In-toeing,14.0,Walking,86.8,0.49
+20615,0,0,0,0,In-toeing,14.0,Walking,86.8,0.49
+20644,0,0,0,0,In-toeing,14.0,Walking,86.8,0.49
+20675,0,0,0,0,In-toeing,14.0,Walking,86.8,0.49
+20694,0,0,0,0,In-toeing,14.0,Walking,86.8,0.49
+20714,0,0,0,0,In-toeing,14.0,Walking,86.8,0.49
+20734,0,0,0,0,In-toeing,14.0,Walking,86.8,0.49
+20764,0,0,0,0,In-toeing,14.0,Walking,86.8,0.49
+20785,0,0,0,0,In-toeing,14.0,Walking,86.8,0.49
+20815,0,0,0,0,In-toeing,14.0,Walking,86.8,0.49
+20835,0,0,0,0,In-toeing,14.0,Walking,86.8,0.49
+20865,0,0,0,0,In-toeing,14.0,Walking,86.8,0.49
+20885,0,0,0,0,In-toeing,14.0,Walking,86.8,0.49
+20925,0,0,0,0,In-toeing,14.0,Walking,86.8,0.49
+20944,0,0,0,69,In-toeing,14.0,Walking,86.8,0.49
+20964,0,0,0,512,In-toeing,14.0,Walking,88.6,0.49
+20985,0,111,0,181,Heel walking,0.0,Walking,88.6,0.49
+21005,0,241,0,0,Heel walking,0.0,Walking,88.6,0.49
+21025,0,348,0,0,Heel walking,0.0,Walking,88.6,0.49
+21045,0,441,0,0,Heel walking,0.0,Walking,88.6,0.49
+21074,0,524,0,0,Heel walking,0.0,Walking,88.6,0.49
+21104,0,555,0,0,Heel walking,0.0,Walking,88.6,0.49
+21124,0,584,0,0,Heel walking,0.0,Walking,88.6,0.50
+21145,0,600,0,0,Heel walking,0.0,Walking,88.6,0.50
+21174,0,630,0,0,Heel walking,0.0,Walking,88.6,0.50
+21195,0,646,0,0,Heel walking,0.0,Walking,88.6,0.50
+21235,0,650,0,0,Heel walking,0.0,Walking,88.6,0.50
+21255,0,661,0,0,Heel walking,0.0,Walking,88.6,0.50
+21265,0,657,0,0,Heel walking,0.0,Walking,118.8,0.50
+21314,0,594,0,0,Heel walking,0.0,Walking,118.8,0.50
+21345,0,483,0,0,Heel walking,0.0,Walking,118.8,0.50
+21354,0,359,0,0,Heel walking,0.0,Walking,118.8,0.50
+21375,0,361,0,0,Heel walking,0.0,Walking,118.8,0.50
+21395,0,336,0,0,Heel walking,0.0,Walking,118.8,0.50
+21415,0,301,0,0,Heel walking,0.0,Walking,118.8,0.50
+21445,0,281,0,0,Tip-toeing,0.0,Walking,118.8,0.55
+21465,0,273,0,0,Tip-toeing,0.0,Walking,118.8,0.55
+21485,0,238,0,0,Tip-toeing,0.0,Walking,118.8,0.55
+21514,0,164,0,0,Tip-toeing,0.0,Walking,118.8,0.55
+21534,0,89,0,0,Tip-toeing,0.0,Walking,118.8,0.55
+21565,0,0,0,0,Tip-toeing,0.0,Walking,118.8,0.55
+21585,0,0,0,0,Tip-toeing,0.0,Walking,118.8,0.55
+21615,0,0,0,0,Tip-toeing,0.0,Walking,118.8,0.55
+21635,0,0,0,0,Tip-toeing,0.0,Walking,118.8,0.55
+21664,0,0,0,0,Tip-toeing,0.0,Walking,118.8,0.55
+21684,0,0,0,0,Tip-toeing,0.0,Walking,118.8,0.55
+21704,0,0,0,0,Tip-toeing,0.0,Walking,118.8,0.55
+21734,0,0,0,0,Tip-toeing,0.0,Walking,118.8,0.55
+21754,0,0,0,0,Tip-toeing,0.0,Walking,118.8,0.55
+21784,0,0,0,0,Tip-toeing,0.0,Walking,118.8,0.55
+21804,0,0,0,0,Tip-toeing,0.0,Walking,118.8,0.55
+21824,0,0,0,0,Tip-toeing,0.0,Walking,118.8,0.55
+21844,0,0,0,0,Tip-toeing,0.0,Walking,118.8,0.55
+21875,0,0,0,0,Tip-toeing,0.0,Walking,118.8,0.55
+21895,0,0,0,0,Tip-toeing,0.0,Walking,118.8,0.55
+21927,0,0,0,0,Tip-toeing,0.0,Walking,118.8,0.55
+21944,0,0,0,0,Tip-toeing,0.0,Walking,118.8,0.55
+21964,0,0,0,0,Tip-toeing,0.0,Walking,118.8,0.55
+21975,0,0,0,0,Tip-toeing,0.0,Walking,118.8,0.55
+22014,0,0,0,0,Tip-toeing,0.0,Walking,118.8,0.55
+22046,0,0,0,0,Tip-toeing,0.0,Walking,118.8,0.55
+22075,0,0,0,0,Tip-toeing,0.0,Walking,118.8,0.55
+22104,0,0,0,0,Tip-toeing,0.0,Walking,118.8,0.55
+22115,0,0,0,0,Tip-toeing,0.0,Walking,118.8,0.55
+22155,0,0,0,0,Tip-toeing,0.0,Walking,118.8,0.55
+22165,0,0,0,0,Tip-toeing,0.0,Walking,118.8,0.55
+22185,0,0,0,0,Tip-toeing,0.0,Walking,118.8,0.55
+22195,0,0,0,0,Tip-toeing,0.0,Walking,118.8,0.55
+22234,0,0,0,0,Tip-toeing,0.0,Walking,118.8,0.55
+22254,0,0,0,0,Tip-toeing,0.0,Walking,118.8,0.55
+22275,0,0,0,281,Tip-toeing,0.0,Walking,118.8,0.55
+22314,0,0,0,680,Tip-toeing,0.0,Jogging,123.2,0.55
+22335,0,0,0,561,Tip-toeing,0.0,Jogging,123.2,0.55
+22355,0,0,0,505,Tip-toeing,0.0,Jogging,123.2,0.55
+22375,0,0,0,565,Tip-toeing,0.0,Jogging,123.2,0.55
+22404,0,0,0,588,Tip-toeing,0.0,Jogging,123.2,0.55
+22424,0,0,0,596,Tip-toeing,0.0,Jogging,123.2,0.55
+22464,0,0,0,586,Tip-toeing,0.0,Jogging,123.2,0.55
+22484,0,80,0,563,Tip-toeing,0.0,Jogging,123.2,0.44
+22685,0,129,0,526,Tip-toeing,0.0,Jogging,123.2,0.44
+22695,0,177,0,488,Tip-toeing,0.0,Jogging,123.2,0.44
+22715,0,230,0,460,Tip-toeing,0.0,Jogging,123.2,0.44
+22735,0,258,0,380,Tip-toeing,0.0,Jogging,123.2,0.44
+22754,0,344,0,128,Tip-toeing,0.0,Jogging,123.2,0.44
+22774,0,439,0,0,Tip-toeing,0.0,Jogging,123.2,0.44
+22795,0,519,68,0,Tip-toeing,0.0,Jogging,123.2,0.44
+22815,0,579,61,0,Tip-toeing,0.0,Jogging,123.2,0.44
+22835,0,581,0,0,Tip-toeing,0.0,Jogging,123.2,0.44
+22845,0,532,0,0,Tip-toeing,0.0,Jogging,123.2,0.44
+22865,0,467,0,0,Tip-toeing,0.0,Jogging,123.2,0.44
+22885,0,329,0,0,Tip-toeing,0.0,Jogging,123.2,0.44
+22895,0,144,0,0,In-toeing,0.0,Jogging,123.2,0.44
+22914,0,0,0,0,In-toeing,0.0,Jogging,123.2,0.44
+22925,0,0,0,0,In-toeing,0.0,Jogging,123.2,0.44
+22944,0,0,0,0,In-toeing,0.0,Jogging,123.2,0.44
+22964,0,0,0,0,In-toeing,0.0,Jogging,123.2,0.44
+22975,0,0,0,0,In-toeing,0.0,Jogging,123.2,0.44
+22995,0,0,0,0,In-toeing,0.0,Jogging,123.2,0.44
+23005,0,0,0,0,In-toeing,0.0,Jogging,123.2,0.44
+23025,0,0,0,0,In-toeing,0.0,Jogging,123.2,0.44
+23035,0,0,0,0,In-toeing,0.0,Jogging,123.2,0.44
+23055,0,0,0,0,In-toeing,0.0,Jogging,123.2,0.44
+23075,0,0,0,0,In-toeing,0.0,Jogging,123.2,0.44
+23085,0,0,0,0,In-toeing,0.0,Jogging,123.2,0.44
+23105,0,0,0,0,In-toeing,0.0,Jogging,123.2,0.44
+23125,0,0,0,0,In-toeing,0.0,Jogging,123.2,0.44
+23155,0,0,0,0,In-toeing,0.0,Jogging,123.2,0.44
+23175,0,0,0,0,In-toeing,0.0,Jogging,123.2,0.44
+23195,0,0,0,0,In-toeing,0.0,Jogging,123.2,0.44
+23244,0,0,0,0,In-toeing,0.0,Jogging,123.2,0.44
+23266,0,0,0,0,In-toeing,0.0,Jogging,123.2,0.44
+23275,0,0,0,0,In-toeing,0.0,Jogging,123.2,0.44
+23295,0,0,0,0,In-toeing,0.0,Jogging,123.2,0.44
+23324,0,0,0,0,In-toeing,0.0,Jogging,123.2,0.44
+23345,0,0,0,0,In-toeing,0.0,Jogging,123.2,0.44
+23375,0,0,0,0,In-toeing,0.0,Jogging,123.2,0.44
+23395,0,0,0,0,In-toeing,0.0,Jogging,123.2,0.44
+23415,0,0,0,0,In-toeing,0.0,Jogging,123.2,0.44
+23444,0,0,0,0,In-toeing,0.0,Jogging,123.2,0.44
+23464,0,0,0,0,In-toeing,0.0,Jogging,123.2,0.44
+23484,0,0,0,0,In-toeing,0.0,Jogging,123.2,0.44
+23505,0,0,0,0,In-toeing,0.0,Jogging,123.2,0.44
+23535,0,0,0,0,In-toeing,0.0,Jogging,123.2,0.44
+23555,0,0,0,0,In-toeing,0.0,Jogging,123.2,0.44
+23585,0,0,0,0,In-toeing,0.0,Jogging,123.2,0.44
+23605,0,0,0,0,In-toeing,0.0,Jogging,123.2,0.44
+23625,0,0,0,0,In-toeing,0.0,Jogging,123.2,0.44
+23654,0,0,0,0,In-toeing,0.0,Jogging,123.2,0.44
+23676,0,0,0,0,In-toeing,0.0,Jogging,123.2,0.44
+23705,0,0,0,0,In-toeing,0.0,Jogging,123.2,0.44
+23724,0,0,0,0,In-toeing,0.0,Jogging,123.2,0.44
+23755,0,0,0,0,In-toeing,0.0,Jogging,123.2,0.44
+23765,0,0,0,273,In-toeing,0.0,Jogging,123.2,0.44
+23805,0,0,0,338,In-toeing,0.0,Walking,114.7,0.44
+23825,0,0,0,202,Heel walking,0.0,Walking,114.7,0.44
+23835,0,0,0,282,Heel walking,0.0,Walking,114.7,0.44
+23875,0,0,0,333,Heel walking,0.0,Walking,114.7,0.44
+23905,0,0,0,371,Heel walking,0.0,Walking,114.7,0.44
+23915,0,0,0,342,Heel walking,0.0,Walking,114.7,0.44
+23944,0,0,0,265,Heel walking,0.0,Walking,114.7,0.44
+23975,0,0,0,186,Heel walking,0.0,Walking,114.7,0.51
+23985,0,180,0,0,Heel walking,0.0,Walking,114.7,0.51
+24015,0,371,0,0,Heel walking,0.0,Walking,114.7,0.51
+24045,0,447,0,0,Heel walking,0.0,Walking,114.7,0.51
+24065,0,499,0,0,Heel walking,0.0,Walking,114.7,0.51
+24085,0,580,0,0,Heel walking,0.0,Walking,114.7,0.51
+24115,0,641,0,0,Heel walking,0.0,Jogging,142.5,0.51
+24144,0,681,0,0,Heel walking,0.0,Jogging,142.5,0.51
+24164,0,725,0,0,Heel walking,0.0,Jogging,142.5,0.51
+24185,0,743,0,0,Heel walking,0.0,Jogging,142.5,0.51
+24215,0,757,0,0,Heel walking,0.0,Jogging,142.5,0.51
+24235,0,750,0,0,Heel walking,0.0,Jogging,142.5,0.51
+24265,0,714,0,0,Heel walking,0.0,Jogging,142.5,0.51
+24285,0,694,0,0,Heel walking,0.0,Jogging,142.5,0.40
+24315,0,677,0,0,Heel walking,0.0,Jogging,142.5,0.40
+24335,0,621,0,0,Heel walking,0.0,Jogging,142.5,0.40
+24354,0,457,0,0,Heel walking,0.0,Jogging,142.5,0.40
+24385,0,317,0,0,Heel walking,0.0,Jogging,142.5,0.40
+24416,0,258,0,0,Tip-toeing,0.0,Jogging,142.5,0.40
+24445,0,206,0,0,Tip-toeing,0.0,Jogging,142.5,0.40
+24455,0,102,0,0,Tip-toeing,0.0,Jogging,142.5,0.40
+24475,0,0,0,0,Tip-toeing,0.0,Jogging,142.5,0.40
+24505,0,0,0,0,Tip-toeing,0.0,Jogging,142.5,0.40
+24525,0,0,0,0,Tip-toeing,0.0,Jogging,142.5,0.40
+24554,0,0,0,0,Tip-toeing,0.0,Jogging,142.5,0.40
+24574,0,0,0,0,Tip-toeing,0.0,Jogging,142.5,0.40
+24594,0,0,0,0,Tip-toeing,0.0,Jogging,142.5,0.40
+24625,0,0,0,0,Tip-toeing,0.0,Jogging,142.5,0.40
+24645,0,0,0,0,Tip-toeing,0.0,Jogging,142.5,0.40
+24655,0,0,0,0,Tip-toeing,0.0,Jogging,142.5,0.40
+24695,0,0,0,0,Tip-toeing,0.0,Jogging,142.5,0.40
+24725,0,0,0,0,Tip-toeing,0.0,Jogging,142.5,0.40
+24735,0,0,0,0,Tip-toeing,0.0,Jogging,142.5,0.40
+24764,0,0,0,0,Tip-toeing,0.0,Jogging,142.5,0.40
+24784,0,0,0,0,Tip-toeing,0.0,Jogging,142.5,0.40
+24815,0,0,0,0,Tip-toeing,0.0,Jogging,142.5,0.40
+24835,0,0,0,0,Tip-toeing,0.0,Jogging,142.5,0.40
+24865,0,0,0,0,Tip-toeing,0.0,Jogging,142.5,0.40
+24885,0,0,0,0,Tip-toeing,0.0,Jogging,142.5,0.40
+24905,0,0,0,0,Tip-toeing,0.0,Jogging,142.5,0.40
+24935,0,0,0,0,Tip-toeing,0.0,Jogging,142.5,0.40
+24955,0,0,0,0,Tip-toeing,0.0,Jogging,142.5,0.40
+24985,0,0,0,0,Tip-toeing,0.0,Jogging,142.5,0.40
+25005,0,0,0,0,Tip-toeing,0.0,Jogging,142.5,0.40
+25036,0,0,0,0,Tip-toeing,0.0,Jogging,142.5,0.40
+25054,0,0,0,0,Tip-toeing,0.0,Jogging,142.5,0.40
+25085,0,0,0,0,Tip-toeing,0.0,Jogging,142.5,0.40
+25104,0,0,0,0,Tip-toeing,0.0,Jogging,142.5,0.40
+25124,0,0,0,0,Tip-toeing,0.0,Jogging,142.5,0.40
+25144,0,0,0,0,Tip-toeing,0.0,Jogging,142.5,0.40
+25164,0,0,0,0,Tip-toeing,0.0,Jogging,142.5,0.40
+25205,0,0,0,0,Tip-toeing,0.0,Jogging,142.5,0.40
+25215,0,0,0,0,Tip-toeing,0.0,Jogging,142.5,0.40
+25245,0,0,0,0,Tip-toeing,0.0,Jogging,142.5,0.40
+25265,0,0,0,0,Tip-toeing,0.0,Jogging,142.5,0.40
+25295,0,0,0,444,Tip-toeing,0.0,Jogging,138.5,0.40
+25315,0,0,0,627,Tip-toeing,0.0,Jogging,138.5,0.40
+25335,0,0,0,465,Tip-toeing,0.0,Jogging,138.5,0.40
+25365,0,0,0,443,Tip-toeing,0.0,Jogging,138.5,0.40
+25395,0,0,0,497,Tip-toeing,0.0,Jogging,138.5,0.40
+25415,0,118,0,402,Tip-toeing,0.0,Jogging,138.5,0.40
+25444,0,169,341,252,Tip-toeing,0.0,Jogging,138.5,0.40
+25466,0,210,521,0,Tip-toeing,0.0,Jogging,138.5,1.05
+25685,0,266,573,0,Tip-toeing,0.0,Jogging,138.5,1.05
+25696,0,267,479,0,Tip-toeing,0.0,Jogging,138.5,1.05
+25715,0,280,400,0,Tip-toeing,0.0,Jogging,138.5,1.05
+25725,0,275,347,0,Tip-toeing,0.0,Jogging,138.5,1.05
+25746,0,253,269,0,Normal gait,48.0,Jogging,138.5,1.05
+25775,0,205,159,0,Normal gait,48.0,Jogging,138.5,1.05
+25815,0,129,70,0,Normal gait,48.0,Jogging,138.5,1.05
+25825,0,102,0,0,Normal gait,48.0,Jogging,138.5,1.05
+25845,0,84,0,0,Normal gait,48.0,Jogging,138.5,1.05
+25865,0,70,0,0,Normal gait,48.0,Jogging,138.5,1.05
+25875,0,0,0,0,Normal gait,48.0,Jogging,138.5,1.05
+25895,0,0,0,0,Normal gait,48.0,Jogging,138.5,1.05
+25905,0,0,0,0,Normal gait,48.0,Jogging,138.5,1.05
+25925,0,0,0,0,Normal gait,48.0,Jogging,138.5,1.05
+25945,0,0,0,0,Normal gait,48.0,Jogging,138.5,1.05
+25955,0,0,0,0,Normal gait,48.0,Jogging,138.5,1.05
+25975,0,0,0,0,Normal gait,48.0,Jogging,138.5,1.05
+25985,0,0,0,0,Normal gait,48.0,Jogging,138.5,1.05
+26004,0,0,0,0,Normal gait,48.0,Jogging,138.5,1.05
+26015,0,0,0,0,Normal gait,48.0,Jogging,138.5,1.05
+26045,0,0,0,0,Normal gait,48.0,Jogging,138.5,1.05
+26065,0,0,0,0,Normal gait,48.0,Jogging,138.5,1.05
+26075,0,0,0,0,Normal gait,48.0,Jogging,138.5,1.05
+26105,0,0,0,0,Normal gait,48.0,Jogging,138.5,1.05
+26115,0,0,0,0,Normal gait,48.0,Jogging,138.5,1.05
+26135,0,0,0,0,Normal gait,48.0,Jogging,138.5,1.05
+26146,0,0,0,0,Normal gait,48.0,Jogging,138.5,1.05
+26166,0,0,0,0,Normal gait,48.0,Jogging,138.5,1.05
+26176,0,0,0,0,Normal gait,48.0,Jogging,138.5,1.05
+26196,0,0,0,0,Normal gait,48.0,Jogging,138.5,1.05
+26205,0,0,0,0,Normal gait,48.0,Jogging,138.5,1.05
+26235,0,0,0,0,Normal gait,48.0,Jogging,138.5,1.05
+26266,0,0,0,0,Normal gait,48.0,Jogging,138.5,1.05
+26285,0,0,0,0,Normal gait,48.0,Jogging,138.5,1.05
+26315,0,0,0,0,Normal gait,48.0,Jogging,138.5,1.05
+26336,0,0,0,0,Normal gait,48.0,Jogging,138.5,1.05
+26356,0,0,0,0,Normal gait,48.0,Jogging,138.5,1.05
+26385,0,0,0,0,Normal gait,48.0,Jogging,138.5,1.05
+26405,0,0,0,0,Normal gait,48.0,Jogging,138.5,1.05
+26425,0,0,0,0,Normal gait,48.0,Jogging,138.5,1.05
+26446,0,0,0,0,Normal gait,48.0,Jogging,138.5,1.05
+26475,0,0,0,0,Normal gait,48.0,Jogging,138.5,1.05
+26495,0,0,0,0,Normal gait,48.0,Jogging,138.5,1.05
+26525,0,0,0,0,Normal gait,48.0,Jogging,138.5,1.05
+26545,0,0,0,0,Normal gait,48.0,Jogging,138.5,1.05
+26565,0,0,0,0,Normal gait,48.0,Jogging,138.5,1.05
+26576,0,0,0,0,Normal gait,48.0,Jogging,138.5,1.05
+26616,0,0,0,0,Normal gait,48.0,Jogging,138.5,1.05
+26645,0,0,0,0,Normal gait,48.0,Jogging,138.5,1.05
+26665,0,0,0,0,Normal gait,48.0,Jogging,138.5,1.05
+26695,0,0,0,0,Normal gait,48.0,Jogging,138.5,1.05
+26716,0,0,0,369,Normal gait,48.0,Walking,110.1,1.05
+26755,0,0,0,543,Normal gait,48.0,Walking,110.1,1.05
+26775,0,0,0,473,Normal gait,48.0,Walking,110.1,1.05
+26785,0,0,0,470,Normal gait,48.0,Walking,110.1,1.05
+26805,0,0,0,514,Normal gait,48.0,Walking,110.1,1.05
+26835,0,0,0,474,Normal gait,48.0,Walking,110.1,1.05
+26866,0,197,0,409,Normal gait,48.0,Walking,110.1,1.05
+26876,0,278,0,367,Normal gait,48.0,Walking,110.1,0.40
+26916,0,301,0,282,Normal gait,48.0,Walking,110.1,0.40
+26935,0,323,0,144,Normal gait,48.0,Walking,110.1,0.40
+26965,0,349,0,0,Normal gait,48.0,Walking,110.1,0.40
+26975,0,377,0,0,Normal gait,48.0,Walking,110.1,0.40
+27006,0,397,0,0,Normal gait,48.0,Walking,110.1,0.40
+27035,0,395,0,0,Normal gait,48.0,Walking,110.1,0.40
+27055,0,356,0,0,Normal gait,48.0,Walking,110.1,0.40
+27076,0,222,0,0,In-toeing,0.0,Walking,110.1,0.40
+27105,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+27125,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+27156,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+27176,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+27205,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+27235,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+27245,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+27276,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+27295,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+27315,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+27335,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+27375,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+27386,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+27415,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+27425,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+27465,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+27486,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+27515,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+27535,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+27555,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+27586,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+27605,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+27636,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+27656,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+27676,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+27695,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+27725,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+27744,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+27774,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+27794,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+27825,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+27845,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+27864,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+27895,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+27922,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+27945,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+27965,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+28015,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+28026,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+28045,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+28055,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+28085,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+28105,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+28125,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+28155,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+28175,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+28206,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+28226,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+28255,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+28276,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+28305,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+28325,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+28365,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+28375,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+28396,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+28406,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+28446,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+28465,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+28485,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+28715,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+28725,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+28785,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+28796,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+28836,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+28856,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+28866,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+28886,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+28895,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+28915,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+28925,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+28945,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+28976,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+28986,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+29006,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+29015,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+29036,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+29045,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+29067,0,0,0,0,In-toeing,0.0,Walking,110.1,0.40
+29086,0,0,148,0,In-toeing,0.0,Walking,110.1,0.40
+29105,0,0,247,169,In-toeing,0.0,Walking,110.1,0.40
+29136,0,0,355,0,In-toeing,0.0,Walking,88.0,0.40
+29156,0,0,410,0,In-toeing,0.0,Walking,88.0,0.40
+29175,0,0,433,0,In-toeing,0.0,Walking,88.0,0.40
+29195,0,0,524,0,In-toeing,0.0,Walking,88.0,0.40
+29216,0,61,615,0,In-toeing,0.0,Walking,88.0,0.40
+29237,0,0,662,0,In-toeing,0.0,Walking,88.0,0.40
+29255,0,0,694,0,In-toeing,0.0,Walking,88.0,0.40
+29266,0,0,725,0,In-toeing,0.0,Walking,88.0,0.40
+29295,0,0,739,0,In-toeing,0.0,Walking,88.0,0.43
+29315,0,0,740,0,In-toeing,0.0,Walking,88.0,0.43
+29326,0,0,738,0,In-toeing,0.0,Walking,88.0,0.43
+29346,0,0,739,0,In-toeing,0.0,Walking,88.0,0.43
+29366,0,0,739,0,In-toeing,0.0,Walking,88.0,0.43
+29386,0,110,724,0,In-toeing,0.0,Walking,88.0,0.43
+29395,0,140,708,253,In-toeing,0.0,Walking,88.0,0.43
+29426,0,175,718,271,In-toeing,0.0,Walking,88.0,0.43
+29455,0,185,732,90,In-toeing,0.0,Walking,88.0,0.43
+29476,0,181,739,0,In-toeing,0.0,Walking,88.0,0.43
+29496,0,182,764,0,In-toeing,0.0,Walking,88.0,0.43
+29536,0,176,778,0,In-toeing,0.0,Walking,88.0,0.43
+29546,0,169,784,0,In-toeing,0.0,Walking,88.0,0.43
+29586,0,113,790,0,In-toeing,0.0,Walking,88.0,0.43
+29606,0,78,774,0,In-toeing,0.0,Walking,88.0,0.43
+29625,0,0,748,0,In-toeing,0.0,Walking,88.0,0.43
+29636,0,0,726,0,In-toeing,0.0,Walking,88.0,0.43
+29655,0,0,702,0,In-toeing,0.0,Walking,88.0,0.43
+29675,0,0,652,0,In-toeing,0.0,Walking,88.0,0.43
+29685,0,0,563,0,In-toeing,0.0,Walking,88.0,0.43
+29705,0,0,455,0,In-toeing,0.0,Walking,88.0,0.43
+29726,0,0,375,0,In-toeing,0.0,Walking,88.0,0.43
+29745,0,0,402,0,In-toeing,0.0,Walking,88.0,0.43
+29776,0,0,464,0,In-toeing,0.0,Walking,88.0,0.43
+29795,0,0,481,0,In-toeing,0.0,Walking,88.0,0.43
+29816,0,0,457,0,In-toeing,0.0,Walking,88.0,0.43
+29846,0,0,418,0,In-toeing,0.0,Walking,88.0,0.43
+29856,0,0,412,0,In-toeing,0.0,Walking,88.0,0.43
+29896,0,0,465,0,In-toeing,0.0,Walking,88.0,0.43
+29916,0,0,549,0,In-toeing,0.0,Walking,88.0,0.43
+29925,0,0,598,0,In-toeing,0.0,Walking,88.0,0.43
+29965,0,0,624,0,In-toeing,0.0,Walking,88.0,0.43
+29995,0,0,644,0,In-toeing,0.0,Walking,88.0,0.43
+30015,0,0,677,0,In-toeing,0.0,Walking,88.0,0.43
+30046,0,0,722,0,In-toeing,0.0,Walking,88.0,0.43
+30065,0,0,757,543,In-toeing,0.0,Walking,88.0,0.43
+30095,0,0,739,504,In-toeing,0.0,Walking,88.0,0.43
+30106,0,0,665,522,In-toeing,0.0,Walking,88.0,0.43
+30155,0,0,526,623,In-toeing,0.0,Walking,88.0,0.43
+30176,0,0,316,687,In-toeing,0.0,Walking,88.0,0.43
+30196,0,0,70,725,In-toeing,0.0,Walking,88.0,0.43
+30206,0,0,0,739,In-toeing,0.0,Walking,88.0,0.43
+30236,0,0,0,753,In-toeing,0.0,Walking,88.0,0.43
+30256,0,0,0,758,In-toeing,0.0,Walking,88.0,0.43
+30285,0,0,0,759,In-toeing,0.0,Walking,88.0,0.43
+30306,0,0,0,760,In-toeing,0.0,Walking,88.0,0.43
+30336,0,0,0,747,In-toeing,0.0,Walking,88.0,0.43
+30355,0,0,0,714,In-toeing,0.0,Walking,88.0,0.43
